@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anxiety UK Resources</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="top-bar">
+        <h1>Anxiety UK</h1>
+        <div class="header-right">
+            <a href="#" class="nav-btn">DONATE</a>
+            <a href="#" class="nav-btn">MEMBER AREA</a>
+        </div>
+    </div>
+    <nav class="main-nav">
+        <div class="main-nav-list">
+            <div class="nav-item">
+                <a href="index.html" class="menu-toggle" data-target="get-help-menu">GET HELP</a>
+            </div> 
+            <div class="nav-item">
+                <a href="#" class="menu-toggle" data-target="resources-menu">ANXIETY RESOURCES</a>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="menu-toggle" data-target="involved-menu">GET INVOLVED</a>
+            </div>
+            <a href="#">SHOP</a>
+        </div>
+    </nav>
+</header>
+
+<div class="container resource-page">
+    <div class="utility-bar">
+        <form action="/search" method="get" class="search-bar">
+            <input type="search" name="q" placeholder="SEARCH" aria-label="Search site">
+        </form>
+        <a href="#" class="accessibility-btn">ACCESSIBILITY TOOL</a>
+    </div>
+
+    <div class="hero-img"></div>
+    <h2>HEADING: Understanding Anxiety</h2>
+    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.”</p>
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggles = document.querySelectorAll('.menu-toggle');
+
+        toggles.forEach(toggle => {
+            toggle.addEventListener('click', function(event) {
+                event.preventDefault(); 
+                
+                const targetId = this.getAttribute('data-target');
+                const targetSubmenu = document.getElementById(targetId);
+
+                document.querySelectorAll('.submenu.is-visible').forEach(menu => {
+                    if (menu !== targetSubmenu) {
+                        menu.classList.remove('is-visible');
+                    }
+                });
+                
+                if (targetSubmenu) {
+                    targetSubmenu.classList.toggle('is-visible');
+                }
+            });
+        });
+        
+        document.body.addEventListener('click', function(event) {
+            if (!event.target.closest('.nav-item')) {
+                 document.querySelectorAll('.submenu.is-visible').forEach(menu => {
+                    menu.classList.remove('is-visible');
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>
