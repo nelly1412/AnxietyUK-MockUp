@@ -384,3 +384,71 @@ footer h1 {
 .container.resource-page {
     max-width: 900px; 
 }
+/* ============================================================== */
+/* === RESPONSIVE STYLES: MOBILE DEVICES (max-width: 768px) === */
+/* ============================================================== */
+
+@media (max-width: 768px) {
+    
+    /* 1. Reset Global Containers */
+    .container {
+        width: 95%; /* Use more screen width on small devices */
+        padding: 20px 0;
+    }
+    header h1 {
+        font-size: 30px; /* Reduce logo size */
+    }
+
+    /* 2. Hide Search/Accessibility Tool (Too wide for phone header) */
+    .utility-bar {
+        display: none; 
+    }
+    
+    /* 3. Collapse Multi-Column Layouts to Single Column */
+    
+    /* Collapse Header Navigation (Mega Menu items stack vertically) */
+    .main-nav-list {
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: 5px; /* Reduce vertical spacing */
+    }
+    .main-nav a {
+        padding: 5px 0; /* Links become full width text */
+    }
+    
+    /* Collapse Get Help Today and Support sections */
+    .help-today-section,
+    .support-section {
+        flex-direction: column; /* Stack image and text vertically */
+    }
+    .help-today-image,
+    .support-image {
+        max-width: 100%;
+        margin-top: 15px;
+    }
+
+    /* Collapse 3-column service grid to 1 column */
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    /* Collapse 2-column story grid to 1 column */
+    .stories-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* 4. Mega Menu Cleanup (Since columns won't fit on a phone) */
+    .submenu {
+        position: static; /* Make the submenu flow with the content */
+        box-shadow: none;
+        width: 100%;
+        max-width: 100%;
+        
+        /* Make columns stack vertically in the mega menu */
+        flex-direction: column;
+    }
+    .submenu-column {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Add horizontal divider */
+    }
+}
